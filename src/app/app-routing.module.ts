@@ -5,7 +5,6 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
-import { FavoritesComponent } from './favorites/favorites.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
@@ -14,7 +13,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'details/:id', component: DetailsComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'favorites', component: FavoritesComponent },
+  { path: 'signup', component: SignUpComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/404' }
 ];
