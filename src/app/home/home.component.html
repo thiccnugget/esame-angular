@@ -1,25 +1,31 @@
-<main>
-    <section>
-      <h1>Title</h1>
-      <p>Some text</p>
-      <button mat-button>Button</button> <!-- Add any desired styling to the button using Material UI's classes -->
+<div class="container">
+    <div class="centered-box">
+      <h1>Welcome to the Homepage</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  
+    <section class="section">
+      <div class="card">
+        <img [src]="imagePath"  alt="Image 1" class="card-image">
+        <div class="card-content">
+          <h2>Card 1</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+
+  
+      <div class="card">
+        <div class="card-content">
+          <h2>Card 2</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <img [src]="imagePath" alt="Image 2" class="card-image">
+
+      </div>
+
+      <button class="round-button">Accedi al catalogo</button>
+
     </section>
   
-    <section>
-      <div>
-        <img src="https://mixkit.imgix.net/static/home/free-video-templates/free-final-cut-pro-templates.png?q=80&auto=format%2Ccompress" alt="Image 1">
-      </div>
-      <div>
-        <p>Text 1</p>
-      </div>
-    </section>
+  </div>
   
-    <section>
-      <div>
-        <p>Text 2</p>
-      </div>
-      <div>
-        <img src="https://mixkit.imgix.net/static/home/free-video-templates/free-final-cut-pro-templates.png?q=80&auto=format%2Ccompress" alt="Image 2">
-      </div>
-    </section>
-</main>
