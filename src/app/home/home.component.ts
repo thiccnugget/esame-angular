@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @Component({
   selector: 'app-home',
@@ -6,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  
 
 }
