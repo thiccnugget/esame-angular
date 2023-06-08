@@ -1,1 +1,12 @@
-<p>products works!</p>
+<h1>Elenco Prodotti</h1>
+<div class="row">
+  <div class="col-md-4" *ngFor="let product of products">
+    <div class="card">
+      <img class="card-img-top" [src]="'assets/images/product' + product.id + '.jpg'" alt="Foto del prodotto">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.product_name }}</h5>
+        <p class="card-text">{{ product.product_description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
