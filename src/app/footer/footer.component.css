@@ -1,0 +1,16 @@
+.footerBody{
+    height: max-content;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.info{
+    width: 100%;
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
