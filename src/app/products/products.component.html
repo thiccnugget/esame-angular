@@ -3,9 +3,7 @@
     <div class="col-md-4" *ngFor="let product of products?.products" style="margin-bottom: 20px;">
       <a routerLink="details/{{product.id}}" routerLinkActive="active">
         <div class="card">
-          <a href="details:">
-            <img class="card-img-top" [src]="product.images[0]" alt="Foto del prodotto" style="width: 150px;">
-          </a>
+          <img class="card-img-top" [src]="product.images[0]" alt="Foto del prodotto" style="width: 150px;">
           <div class="card-body">
             <h5 class="card-title">{{ product.title }}</h5>
             <p class="card-text">{{ product.description }}</p>
