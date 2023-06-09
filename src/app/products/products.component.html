@@ -1,7 +1,7 @@
 <h1>Elenco Prodotti</h1>
 <div class="row" style="height: fit-content;">
     <div class="col-md-4" *ngFor="let product of products?.products" style="margin-bottom: 20px;">
-      <a routerLink="details/{{product.id}}" routerLinkActive="active">
+      <a routerLink="details/" routerLinkActive="active">
         <div class="card">
           <img class="card-img-top" [src]="product.images[0]" alt="Foto del prodotto" style="width: 150px;">
           <div class="card-body">
