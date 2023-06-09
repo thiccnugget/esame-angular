@@ -8,18 +8,12 @@ import { ProductResponse } from '../utils/types';
   styleUrls: ['./products.component.css']
 })
 
-
-
-
 export class ProductsComponent implements OnInit {
   products: ProductResponse | undefined;
 
   constructor (){
     let products: ProductResponse;
   }
-
-
-
 
   ngOnInit() {
     axios.get<ProductResponse>('https://dummyjson.com/products')
