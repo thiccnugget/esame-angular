@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import ValidatorsCustom from '../utils/customValidators';
 import { LocalStorageService } from '../utils/localStorage/local-storage.service';
@@ -26,6 +26,14 @@ export class LoginComponent implements OnInit{
   ngOnInit() {
     const storedUser = this.localStorage.getUserData();
 
+    if (storedUser) {
+      console.log('Dati presenti nel localStorage:', storedUser);
+      alert('Dati presenti nel localStorage: ' + JSON.stringify(storedUser));
+    } else {
+      console.log('Non ci sono dati nel localStorage.');
+      alert('Non ci sono dati nel localStorage.');
+    }
+
     this.exampleForm = this.fb.group({
       username: [storedUser?.username || '', Validators.required],
       email: [storedUser?.email || '', Validators.compose([
@@ -41,8 +49,19 @@ export class LoginComponent implements OnInit{
       const {username, email} = this.exampleForm.value;
       this.localStorage.saveUserData(username, email, '');
       console.log('User data saved into localStorage');
+      
     } else {
       console.log('Form not valid');
     }
   }
+
+  /*ngOnDestroy() {
+    this.clearUserData();
+  }
+
+  clearUserData(): void {
+    this.localStorage.clearUserData();
+    console.log('User data removed from localStorage');
+  }*/
 }
+

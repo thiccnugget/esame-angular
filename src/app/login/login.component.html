@@ -10,9 +10,21 @@
             <h2 class="text-center">Login</h2>       
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Username" formControlName="username">
+                <ng-container *ngIf="submitted && exampleForm.get('username')?.hasError('required')">
+                    <ng-container *ngTemplateOutlet="errorTemplate; context:{ message:'Campo richiesto'}"></ng-container>
+                </ng-container>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Email" formControlName="email">
+                <ng-container *ngIf="submitted && exampleForm.get('email')?.hasError('required')">
+                    <ng-container *ngTemplateOutlet="errorTemplate; context:{ message:'Campo richiesto'}"></ng-container>
+                </ng-container>
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                <ng-container *ngIf="submitted && exampleForm.get('password')?.hasError('passwordStrength')">
+                    <ng-container *ngTemplateOutlet="errorTemplate; context:{ message:'Password non valida'}"></ng-container>
+                </ng-container>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
@@ -26,9 +38,7 @@
     </div>
 </body>
 
-<ng-container *ngIf="submitted && exampleForm.invalid">
-    <ng-container *ngTemplateOutlet="errorTemplate; context: { message: 'Form not valid' }"></ng-container>
-</ng-container>
+
 
 <ng-template #errorTemplate let-message="message">
     <h1>{{ message }}</h1>
