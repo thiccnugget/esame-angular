@@ -14,6 +14,7 @@ const dataUpdated = {
 })
 export class LoginComponent implements OnInit{
   isLoggedIn = false;
+  currentUsername: string | null = null;
   constructor(
     private fb: FormBuilder,
     private localStorage: LocalStorageService
@@ -27,6 +28,10 @@ export class LoginComponent implements OnInit{
   ngOnInit() {
     const storedUser = this.localStorage.getUserData();
     this.isLoggedIn = storedUser !== null;
+    if(storedUser){
+      this.currentUsername = storedUser.username;
+    }
+    
 
     /*if (storedUser) {
       console.log('Dati presenti nel localStorage:', storedUser);
