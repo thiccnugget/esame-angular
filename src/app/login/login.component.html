@@ -6,6 +6,13 @@
 </head>
 <body>
     <div class="login-form">
+        <ng-container *ngIf="isLoggedIn; else loginForm">
+            <!-- Contenuto da mostrare quando l'utente è autenticato -->
+            <h2 class="text-center">Benvenuto!</h2>
+            <p>Sei già autenticato.</p>
+            <button class="btn btn-primary" (click)="logout()">Logout</button>
+        </ng-container>
+        <ng-template #loginForm>
         <form [formGroup]="exampleForm" (submit)="onSubmit()">
             <h2 class="text-center">Login</h2>       
             <div class="form-group">
@@ -34,6 +41,7 @@
                 <a href="#" class="pull-right">Forgot Password?</a>
             </div>        
         </form>
+    </ng-template>
         
     </div>
 </body>

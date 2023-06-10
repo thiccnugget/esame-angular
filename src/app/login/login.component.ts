@@ -13,6 +13,7 @@ const dataUpdated = {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
+  isLoggedIn = false;
   constructor(
     private fb: FormBuilder,
     private localStorage: LocalStorageService
@@ -25,14 +26,15 @@ export class LoginComponent implements OnInit{
 
   ngOnInit() {
     const storedUser = this.localStorage.getUserData();
+    this.isLoggedIn = storedUser !== null;
 
-    if (storedUser) {
+    /*if (storedUser) {
       console.log('Dati presenti nel localStorage:', storedUser);
       alert('Dati presenti nel localStorage: ' + JSON.stringify(storedUser));
     } else {
       console.log('Non ci sono dati nel localStorage.');
       alert('Non ci sono dati nel localStorage.');
-    }
+    }*/
 
     this.exampleForm = this.fb.group({
       username: [storedUser?.username || '', Validators.required],
@@ -48,6 +50,7 @@ export class LoginComponent implements OnInit{
     if (this.exampleForm.valid) {
       const {username, email} = this.exampleForm.value;
       this.localStorage.saveUserData(username, email, '');
+      this.isLoggedIn = true;
       console.log('User data saved into localStorage');
       
     } else {
@@ -55,12 +58,16 @@ export class LoginComponent implements OnInit{
     }
   }
 
+  logout(): void{
+    this.isLoggedIn = false;
+  }
   /*ngOnDestroy() {
     this.clearUserData();
   }
 
   clearUserData(): void {
     this.localStorage.clearUserData();
+    this.isLoggedIn = false;
     console.log('User data removed from localStorage');
   }*/
 }
