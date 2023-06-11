@@ -16,6 +16,8 @@ import { CartComponent } from './cart/cart.component';
 import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { CarouselModule } from '@coreui/angular';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
