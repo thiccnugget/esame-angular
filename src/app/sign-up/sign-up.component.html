@@ -6,16 +6,16 @@
     </head>
     <body>
         <div class="login-form">
-            <ng-template #signupForm>
+            
             <form [formGroup]="signUpForm" (submit)="onSubmit()">
-                <h2 class="text-center">SignUp</h2>       
+                <h2 class="text-center ">Signup</h2>       
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Username" formControlName="username">
                     <ng-container *ngIf="submitted && signUpForm.get('username')?.hasError('required')">
                         <ng-container *ngTemplateOutlet="errorTemplate; context:{ message:'Campo richiesto'}"></ng-container>
                     </ng-container>
                 </div>
-                <div class="form-group">
+                <div class="form-group ">
                     <input type="text" class="form-control" placeholder="Email" formControlName="email">
                     <ng-container *ngIf="submitted && signUpForm.get('email')?.hasError('required')">
                         <ng-container *ngTemplateOutlet="errorTemplate; context:{ message:'Campo richiesto'}"></ng-container>
@@ -35,7 +35,7 @@
                     <a href="#" class="pull-right">Forgot Password?</a>
                 </div>        
             </form>
-        </ng-template>
+      
             
         </div>
     </body>
