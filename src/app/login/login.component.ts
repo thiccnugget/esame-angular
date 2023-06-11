@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import ValidatorsCustom from '../utils/customValidators';
 import { LocalStorageService } from '../utils/localStorage/local-storage.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 const dataUpdated = {
   email: undefined,
@@ -10,7 +12,13 @@ const dataUpdated = {
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  standalone: true,
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
+],
 })
 export class LoginComponent implements OnInit{
   isLoggedIn = false;
