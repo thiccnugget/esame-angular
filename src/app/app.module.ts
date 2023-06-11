@@ -20,19 +20,26 @@ import { CarouselModule } from '@coreui/angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CartComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatToolbarModule,
-    RouterModule,
-    NavbarComponent,
-    FooterComponent,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NotFoundComponent,
+        DetailsComponent,
+        HomeComponent,
+        SignUpComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        NgbModule,
+        CarouselModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FooterComponent,
+        MatToolbarModule,
+        NavbarComponent
+    ]
 })
 export class AppModule { }
