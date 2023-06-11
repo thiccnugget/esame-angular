@@ -13,26 +13,41 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
+import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FooterComponent } from './footer/footer.component';
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: '404', component: NotFoundComponent },
+  { path: 'listing', component: ProductsComponent },
+  { path: 'detail/:id', component: DetailsComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'cart', component: CartComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/404' }
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    NotFoundComponent,
-    DetailsComponent,
-    HomeComponent,
-    SignUpComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatMenuModule,
-    MatToolbarModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        NotFoundComponent,
+        DetailsComponent,
+        HomeComponent,
+        SignUpComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FooterComponent,
+        MatToolbarModule,
+        NavbarComponent
+    ]
 })
 export class AppModule { }
