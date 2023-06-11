@@ -15,21 +15,13 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     MatToolbarModule,
     RouterModule,
-    LoginComponent,
-    RouterModule
+    LoginComponent
   ]
 })
 
 export class NavbarComponent {
 
-  constructor(){}
-
-  private router: Router = new Router;
+  constructor(private router: Router ){}
 
 
-  logout(){
-    this.router.navigate(['/login']);
-  }
-  
-  
 }

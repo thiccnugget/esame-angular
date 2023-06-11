@@ -6,10 +6,7 @@
 </head>
 <body>
     <div class="login-form">
-        <ng-container *ngIf="isLoggedIn; else loginForm">
-          <h2 style="color: black;">Benvenuto! {{currentUsername}}</h2>
-          <p style="color: black;">Sei già autenticato.</p>
-          <button class="btn btn-primary" (click)="logout()">Logout</button>
+        <ng-container loginForm>
         </ng-container>
         <ng-template #loginForm>
           <form [formGroup]="loginFormGroup" (submit)="onSubmit()">
@@ -24,13 +21,12 @@
               <button type="submit" class="btn btn-primary btn-block">Login</button>
             </div>
             <div class="clearfix">
-              <a href="#" (click)="signup()" class="pull-right">Signup</a>
+              <a routerLink="/signup" routerLinkActive="active" href="/signup" class="pull-right">Signup</a>
             </div>
           </form>
         </ng-template>
       </div>
 </body>
-
 
 
 <ng-template #errorTemplate let-message="message">

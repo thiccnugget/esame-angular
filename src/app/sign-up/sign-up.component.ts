@@ -10,12 +10,10 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent {
   currentUsername: string | null = null;
-  constructor(
-    private fb: FormBuilder,
-    private localStorage: LocalStorageService,
-    private router: Router
-    ) {}
-
+  constructor() {}
+  private fb: FormBuilder = new FormBuilder;
+  private localStorage: LocalStorageService = new LocalStorageService;
+  private router: Router = new Router;
   submitted = false;
 
   signUpForm!: FormGroup;

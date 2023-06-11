@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LocalStorageService } from '../utils/localStorage/local-storage.service';
 import { Router } from '@angular/router';
 import * as bcrypt from 'bcryptjs';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  standalone: true,
+  imports:[ReactiveFormsModule, CommonModule]
 })
+
 export class LoginComponent implements OnInit {
   isLoggedIn = false;
   currentUsername: string | null = null;
@@ -17,14 +22,20 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private localStorage: LocalStorageService,
-    private router: Router
+    private router: Router 
   ) {}
+
+  
 
   ngOnInit() {
     const storedUser = this.localStorage.getUserData();
     if (storedUser) {
       this.isLoggedIn = true;
       this.currentUsername = storedUser.username;
+    }
+
+    if(this.isLoggedIn){
+      this.router.navigate(['/home']);
     }
     
 
@@ -35,10 +46,10 @@ export class LoginComponent implements OnInit {
     
     if (storedUser) {
       console.log('Dati presenti nel localStorage:', storedUser);
-      alert('Dati presenti nel localStorage: ' + JSON.stringify(storedUser));
+      //alert('Dati presenti nel localStorage: ' + JSON.stringify(storedUser));
     } else {
       console.log('Non ci sono dati nel localStorage.');
-      alert('Non ci sono dati nel localStorage.');
+      //alert('Non ci sono dati nel localStorage.');
     }
   }
   
@@ -72,7 +83,7 @@ export class LoginComponent implements OnInit {
   
 
   signup() : void {
-    this.router.navigate(['signup']);
+    this.router.navigate(['/signup']);
   }
   logout(): void {
     this.isLoggedIn = false;
