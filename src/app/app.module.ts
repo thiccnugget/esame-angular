@@ -13,6 +13,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
+import { FooterComponent } from "./footer/footer.component";
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,22 +29,25 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    NotFoundComponent,
-    DetailsComponent,
-    HomeComponent,
-    SignUpComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        NotFoundComponent,
+        DetailsComponent,
+        HomeComponent,
+        SignUpComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FooterComponent,
+        MatToolbarModule,
+        NavbarComponent
+    ]
 })
 export class AppModule { }
