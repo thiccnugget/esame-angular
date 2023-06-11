@@ -1,0 +1,43 @@
+.login-form {
+    width: 400px;
+    border-radius: 10px;
+    margin: 100px auto;
+    color: #FFF8F0;
+
+}
+.text-center{
+    font-size: 35px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.login-form form {
+    
+    background: rgb(18,41,126);
+    background: linear-gradient(114deg, rgba(18,41,126,1) 32%, rgba(23,37,90,1) 81%);
+
+
+    height: 500px;
+    margin-bottom: 15px;
+    
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.btn {     
+    background-color:#FFA400;
+    border-color: #FFA400;
+    font-size: 20px;
+    font-weight: bold;
+}
+.pull-right{
+    color: #FFF8F0;
+}
+.clearfix{
+    margin-top: 50px;
+}
