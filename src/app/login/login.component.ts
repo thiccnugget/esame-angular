@@ -26,18 +26,20 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.currentUsername = storedUser.username;
     }
+    
 
     this.loginFormGroup = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    /*if (storedUser) {
+    
+    if (storedUser) {
       console.log('Dati presenti nel localStorage:', storedUser);
       alert('Dati presenti nel localStorage: ' + JSON.stringify(storedUser));
     } else {
       console.log('Non ci sono dati nel localStorage.');
       alert('Non ci sono dati nel localStorage.');
-    }*/
+    }
   }
   
 
@@ -45,17 +47,29 @@ export class LoginComponent implements OnInit {
     if (this.loginFormGroup.valid) {
       const { username, password } = this.loginFormGroup.value;
       const storedUser = this.localStorage.getUserData();
-      if (storedUser && username === storedUser.username && bcrypt.compareSync(password, storedUser.password)) {
-        this.isLoggedIn = true;
-        this.router.navigate(['/home']);
-        console.log('Login successful');
+      
+      if (storedUser) {
+        if (username === storedUser.username && bcrypt.compareSync(password, storedUser.hashedPassword)) {
+          this.isLoggedIn = true;
+          this.router.navigate(['/home']);
+          console.log('Login successful');
+        } else {
+          if (username !== storedUser.username) {
+            console.log('Invalid username');
+          } else {
+            console.log('Invalid password');
+            console.log('bcrypt.compareSync result:', bcrypt.compareSync(password, storedUser.hashedPassword));
+          }
+        }
       } else {
-        console.log('Invalid username or password');
+        console.log('User not found');
       }
     } else {
       console.log('Form not valid');
     }
   }
+  
+  
 
   signup() : void {
     this.router.navigate(['signup']);

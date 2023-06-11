@@ -47,8 +47,8 @@ export class SignUpComponent {
   onSubmit = () => {
     this.submitted = true;
     if (this.signUpForm.valid) {
-      const {username, email} = this.signUpForm.value;
-      this.localStorage.saveUserData(username, email, '');
+      const {username, email, password} = this.signUpForm.value;
+      this.localStorage.saveUserData(username, email, password);
       console.log('User registered successfully');
       this.router.navigate(['/login']);
     } else {
