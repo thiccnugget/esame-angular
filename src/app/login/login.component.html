@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="login-form">
-        <ng-container *ngIf="isLoggedIn; else loginForm">
+        <ng-container *ngIf="!isLoggedIn; else loginForm">
           <button (click)="logout()">ciao</button>
         </ng-container>
         <ng-template #loginForm>

@@ -5,6 +5,7 @@ import { Cart, Product, ProductDetails} from '../utils/types';
 import { LocalStorageService } from '../utils/localStorage/local-storage.service';
 import axios from 'axios';
 import { RouterModule } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -16,6 +17,8 @@ import { RouterModule } from '@angular/router';
 
 
 export class CartComponent {
+  constructor(private location: Location) {}
+
   localStorage = new LocalStorageService();
   products: ProductDetails[] = [];
   total: number = 0;
@@ -29,6 +32,11 @@ export class CartComponent {
     })
     console.log(this.products)
   }
+
+  reload(){
+    location.reload();
+  }
+
 }
 //  const products: any[] = [];
   

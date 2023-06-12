@@ -21,6 +21,8 @@ import { LocalStorageService } from '../utils/localStorage/local-storage.service
 
 export class NavbarComponent {
   constructor(private router: Router){}
+  localStorage = new LocalStorageService();
+  login = new LoginComponent(this.router);
 
 
 }

@@ -6,12 +6,10 @@ import { Cart } from '../../utils/types';
   providedIn: 'root'
 })
 
-
-
 export class LocalStorageService {
+
   private localStorageKey = 'userData';
 
-  constructor() { }
 
   saveUserData(username: string, email: string, password: string): void{
     const hashedPassword = bcrypt.hashSync(password, 10);
@@ -19,10 +17,8 @@ export class LocalStorageService {
     const data = {username, email, hashedPassword, cart};
     const userJson = JSON.stringify(data);
     localStorage.setItem(this.localStorageKey, userJson);
-    
   }
 
-  //sistemare la logica (funonzia btw)
   addToCart(product: Cart): void {
     let userJson = localStorage.getItem(this.localStorageKey);
     if (userJson){
