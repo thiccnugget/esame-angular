@@ -10,10 +10,9 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent {
   currentUsername: string | null = null;
-  constructor() {}
+  constructor(private router: Router) {}
   private fb: FormBuilder = new FormBuilder;
   private localStorage: LocalStorageService = new LocalStorageService;
-  private router: Router = new Router;
   submitted = false;
 
   signUpForm!: FormGroup;
@@ -53,8 +52,9 @@ export class SignUpComponent {
       console.log('Form not valid');
     }
   }
+
   ngOnDestroy() {
-    this.clearUserData();
+    //this.clearUserData();
   }
 
   clearUserData(): void {

@@ -25,6 +25,8 @@ export class DetailsComponent {
   fetchProductDetails(): void {
     const url = `https://dummyjson.com/products/${this.id}`;
 
+    
+
     axios.get(url)
       .then(response => {
         this.products = response.data; // Assign the fetched product details to 'products'  

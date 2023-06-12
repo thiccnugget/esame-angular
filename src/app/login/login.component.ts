@@ -15,27 +15,27 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 
 export class LoginComponent implements OnInit {
-  isLoggedIn = false;
-  currentUsername: string | null = null;
+  public isLoggedIn = false;
+  public currentUsername: string | null = null;
   loginFormGroup!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private localStorage: LocalStorageService,
-    private router: Router 
-  ) {}
+  constructor( private router: Router ) {}
 
+  private fb: FormBuilder = new FormBuilder;
+  private localStorage: LocalStorageService = new LocalStorageService;
   
 
   ngOnInit() {
     const storedUser = this.localStorage.getUserData();
+    console.log( this.localStorage.getUserData() )
     if (storedUser) {
-      this.isLoggedIn = true;
       this.currentUsername = storedUser.username;
+      //console.log("sono qui", storedUser, this.isLoggedIn, this.currentUsername)
+      this.isLoggedIn = true;
     }
 
     if(this.isLoggedIn){
-      this.router.navigate(['/home']);
+      //this.router.navigate(['/home']);
     }
     
 
@@ -62,8 +62,9 @@ export class LoginComponent implements OnInit {
       if (storedUser) {
         if (username === storedUser.username && bcrypt.compareSync(password, storedUser.hashedPassword)) {
           this.isLoggedIn = true;
+          this.currentUsername = username;
           this.router.navigate(['/home']);
-          console.log('Login successful');
+          console.log('Login successful', this.currentUsername);
         } else {
           if (username !== storedUser.username) {
             console.log('Invalid username');
@@ -85,7 +86,8 @@ export class LoginComponent implements OnInit {
   signup() : void {
     this.router.navigate(['/signup']);
   }
-  logout(): void {
+  public logout(): void {
+    console.log('logout');
     this.isLoggedIn = false;
   }
 }

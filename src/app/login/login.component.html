@@ -6,7 +6,8 @@
 </head>
 <body>
     <div class="login-form">
-        <ng-container loginForm>
+        <ng-container *ngIf="isLoggedIn; else loginForm">
+          <button (click)="logout()">ciao</button>
         </ng-container>
         <ng-template #loginForm>
           <form [formGroup]="loginFormGroup" (submit)="onSubmit()">
