@@ -15,4 +15,10 @@ export type ProductResponse = {
     total: number,
     skip: number,
     limit: number
-  };
+};
+
+
+export type Cart = {
+  id: number,
+  qty: number
+}
