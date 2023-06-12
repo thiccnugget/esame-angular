@@ -1,6 +1,22 @@
-    <h2>Cart Items</h2>
-    <ul>
-        <li *ngFor="let item of cartItems">
-        {{ item.name }} - ${{ item.price }}
-        </li>
-    </ul>
+<h1>Carrello</h1>
+<div class="container-fluid bg-transparent my-4 p-3" style="position: relative;">
+  <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+    <div class="col" *ngFor="let product of products">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" [src]="product.images[0]" alt="Foto del prodotto">
+        <div class="card-body">
+          <div class="clearfix mb-3">
+            <span class="float-start badge rounded-pill bg-primary">{{ product.title }}</span>
+            <span class="float-end price-hp text-white">Prezzo: ${{ product.price }}</span> <br>
+            <span class="float-end price-hp text-white">Quantità: {{ product.quantity }}</span> <br>
+            <span class="float-end price-hp text-white">Totale: ${{ product.quantity*product.price }}</span>
+          </div>
+          <div class="text-center my-4">
+            <a routerLink="/details/{{product.id}}" routerLinkActive="active" class="btn btn-warning">Check offer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
