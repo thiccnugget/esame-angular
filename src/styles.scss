@@ -1,1 +1,10 @@
 @import '~@mui/material/styles';
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Customize your theme here (e.g., set primary color)
+$primary: mat-palette($mat-blue, 500);
+
+// Include the theme styles
+@include angular-material-theme($theme);
