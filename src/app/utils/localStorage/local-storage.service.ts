@@ -55,6 +55,15 @@ export class LocalStorageService {
     return [];
   }
 
+  getUsername() :string {
+    let userJson = localStorage.getItem(this.localStorageKey);
+    if(userJson){
+      let data = JSON.parse(userJson);
+      return data.username;
+    }
+    return "";
+  }
+
   getUserData():  { username: string, email: string, hashedPassword: string } | null {    
     const userJson = localStorage.getItem(this.localStorageKey);
     if (userJson){

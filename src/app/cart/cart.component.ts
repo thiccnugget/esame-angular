@@ -18,12 +18,13 @@ import { RouterModule } from '@angular/router';
 export class CartComponent {
   localStorage = new LocalStorageService();
   products: ProductDetails[] = [];
+  total: number = 0;
 
   ngOnInit() {
     const elements = this.localStorage.getCart()
     elements.map((item:Cart)=>{
       axios.get("https://dummyjson.com/products/"+item.id)
-      .then((response) => this.products.push({...response.data, quantity: item.qty}))
+      .then((response) => {this.total+=(item.qty*response.data.price); this.products.push({...response.data, quantity: item.qty})})
       .catch((error) => console.log(error))
     })
     console.log(this.products)

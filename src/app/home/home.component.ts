@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../utils/localStorage/local-storage.service';
 
 
 
@@ -14,6 +15,7 @@ export class HomeComponent {
 
   constructor(private router: Router) { }
 
+  localStorage = new LocalStorageService();
 
   navigateToProducts() {
     this.router.navigate(['/products']);
