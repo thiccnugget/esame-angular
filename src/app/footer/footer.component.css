@@ -1,7 +1,7 @@
 .footerBody{
     height: max-content;
     text-align: center;
-    position: sticky;
+    position: static;
     width: 100%;
     bottom: 0;
 }
