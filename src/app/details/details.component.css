@@ -58,3 +58,10 @@ color: #555;
     max-height: 200px;
     max-width: 400px;
 }
+
+.bg {
+    background-color: rgb(255, 214, 138);
+    padding-top: 80px;
+    padding-bottom: 130px;
+}
+
