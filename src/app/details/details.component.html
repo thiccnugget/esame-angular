@@ -35,7 +35,7 @@
         </div>
         <div class="button-box flex-row position-relative mt-2 j-center">
             <button class="btn btn-danger" (click)="handleMinusClick()">-</button>
-            <button class="btn btn-primary m-2" onclick=>Aggiungi al carrello</button>
+            <button class="btn btn-primary m-2" (click)="localStorage.addToCart({id:products?.id, qty:this.inputValue})">Aggiungi al carrello</button>
             <button class="btn btn-success" (click)="handlePlusClick()">+</button>
         </div>
     </div>

@@ -20,26 +20,7 @@ import { LocalStorageService } from '../utils/localStorage/local-storage.service
 })
 
 export class NavbarComponent {
-  constructor(private router: Router, private localStorage: LocalStorageService){}
-
-  username : string | undefined
-
-  Login = new LoginComponent(this.router);
-
-  logout = () => {
-      this.Login.logout();
-      this.router.navigate(['/login']);
-  }
-
-
-  ngOnInit(): void {
-    const storedUser = this.localStorage.getUserData();
-    if(storedUser){
-      this.username = storedUser.username
-    }
-    console.log(this.username)
-
-  }
+  constructor(private router: Router){}
 
 
 }

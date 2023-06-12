@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
+import { LocalStorageService } from '../utils/localStorage/local-storage.service';
 
 @Component({
   selector: 'app-details',
@@ -10,7 +11,9 @@ import axios from 'axios';
 export class DetailsComponent {
   id: any;
   products: any; // Add the 'products' property
-  value!: number;
+  value!: number; 
+  localStorage = new LocalStorageService();
+  
 
   constructor(private route: ActivatedRoute) {}
 
