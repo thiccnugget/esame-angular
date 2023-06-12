@@ -22,6 +22,7 @@ export class LocalStorageService {
     
   }
 
+  //sistemare la logica (funonzia btw)
   addToCart(product: Cart): boolean {
     let userJson = localStorage.getItem(this.localStorageKey);
     if (userJson){
@@ -44,6 +45,15 @@ export class LocalStorageService {
     console.log("Prodotto presente")
     return false;
   }  
+
+  getCart() :Cart[] {
+    let userJson = localStorage.getItem(this.localStorageKey);
+    if(userJson){
+      let data = JSON.parse(userJson);
+      return data.cart;
+    }
+    return [];
+  }
 
   getUserData():  { username: string, email: string, hashedPassword: string } | null {    
     const userJson = localStorage.getItem(this.localStorageKey);
