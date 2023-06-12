@@ -23,7 +23,7 @@ export class LocalStorageService {
   }
 
   //sistemare la logica (funonzia btw)
-  addToCart(product: Cart): boolean {
+  addToCart(product: Cart): void {
     let userJson = localStorage.getItem(this.localStorageKey);
     if (userJson){
       let data = JSON.parse(userJson);
@@ -34,17 +34,32 @@ export class LocalStorageService {
         existingItem.qty = product.qty; 
         localStorage.setItem(this.localStorageKey, JSON.stringify(data));
         console.log(JSON.stringify(data));
-        return true;
+        alert(`Elementi aggiunti al carrello: ${product.qty}`);
       } else {
         cartData.push(product); 
         localStorage.setItem(this.localStorageKey, JSON.stringify(data));
         console.log(JSON.stringify(data));
-        return true;
+        alert(`Elementi aggiunti al carrello: ${product.qty}`);
       }
+
     }
-    console.log("Prodotto presente")
-    return false;
   }  
+
+  removeFromCart(id:number){
+    let userJson = localStorage.getItem(this.localStorageKey);
+    if(userJson){
+      let data = JSON.parse(userJson);
+      let cart = data.cart;
+      const index = cart.findIndex((item:Cart) => item.id === id);
+
+      if (index !== -1) {
+        cart.splice(index, 1);
+        localStorage.setItem(this.localStorageKey, JSON.stringify({...data, cart}));
+        alert(`Elemento rimosso dal carrello`);
+      }
+
+    }
+  }
 
   getCart() :Cart[] {
     let userJson = localStorage.getItem(this.localStorageKey);

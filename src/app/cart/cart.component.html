@@ -15,6 +15,7 @@
           </div>
           <div class="text-center my-4">
             <a routerLink="/details/{{product.id}}" routerLinkActive="active" class="btn btn-warning">Check offer</a>
+            <p class="btn btn-warning mt-5" (click)="this.localStorage.removeFromCart(product.id)">Elimina</p>
           </div>
         </div>
       </div>
