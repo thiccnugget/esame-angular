@@ -5,28 +5,29 @@
 </head>
 <body>
     <div class="details mt-5">
-        <div class="img-desc-wrapper j-center">
-            <c-carousel [dark]="true" [interval]="0" transition="crossfade">
-                <c-carousel-inner>
-                  <c-carousel-item *ngFor="let image of products.images">
-                    <img [src]="image" alt="Slide Image" class="carousel-image d-block w-100" loading="lazy">
-                  </c-carousel-item>
-                </c-carousel-inner>
-                <c-carousel-control caption="Previous" direction="prev"></c-carousel-control>
-                <c-carousel-control caption="Next" direction="next"></c-carousel-control>
-              </c-carousel>
-            <div class="col-md-3 description">
-            <p>
-                content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, sequi consequatur aut sed placeat voluptas nesciunt odit unde culpa at? Ad corrupti optio nulla, ipsa culpa velit odio totam ullam.
-                {{ products?.description }}
-            </p>
+        <div class="row w-100 img-desc-wrapper j-center">
+            <div class="col-xs-12 col-sm-6 col-md-3 position-relative phone-carousel">
+                <c-carousel [dark]="true" [interval]="2500" >
+                    <c-carousel-inner>
+                    <c-carousel-item *ngFor="let image of products.images">
+                        <img [src]="image" alt="Slide Image" class="carousel-image" loading="lazy">
+                    </c-carousel-item>
+                    </c-carousel-inner>
+                    <c-carousel-control caption="Previous" class="black-bg" direction="prev"></c-carousel-control>
+                    <c-carousel-control caption="Next" direction="next"></c-carousel-control>
+                </c-carousel>
+            </div>
+            <div class="col-xs-3 col-sm-6 col-md-3 description position-relative">
+                <p>
+                    {{ products?.description }}
+                </p>
             </div>  
         </div>
-        <div class="content-box">
-            <h1>title: {{ products?.title }}</h1>
-            <h2>brand: {{products?.brand}}</h2>
-            <h3>rating: {{products?.rating}}</h3>
-            <p>price: {{ products?.price }}</p>
+        <div class="content-box mt-5">
+            <h1 class="divider">title: {{ products?.title }}</h1>
+            <h2 class="divider">brand: {{products?.brand}}</h2>
+            <h3 class="divider">rating: {{products?.rating}} ⭐</h3>
+            <p class="divider">price: {{ products?.price }} $</p>
         </div>
         <div class="d-flex j-center mt-5">
             <form class="d-flex j-center">
@@ -35,7 +36,7 @@
         </div>
         <div class="button-box flex-row position-relative mt-2 j-center">
             <button class="btn btn-danger" (click)="handleMinusClick()">-</button>
-            <button class="btn btn-primary m-2" (click)="localStorage.addToCart({id:products?.id, qty:this.inputValue})">Aggiungi al carrello</button>
+            <button class="btn btn-primary m-2" (click)="localStorage.addToCart({id:products?.id, qty:this.inputValue})">Add to cart</button>
             <button class="btn btn-success" (click)="handlePlusClick()">+</button>
         </div>
     </div>

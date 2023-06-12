@@ -1,6 +1,14 @@
-    <h2>Cart Items</h2>
-    <ul>
-        <li *ngFor="let item of cartItems">
-        {{ item.name }} - ${{ item.price }}
-        </li>
-    </ul>
+<h1>Elenco Prodotti</h1>
+<div class="row" style="height: fit-content;">
+  <div class="col-md-4" *ngFor="let product of cartItems" style="margin-bottom: 20px;"></div>
+      <div class="card">
+        <!-- <img class="card-img-top" [src]=cartItems.thumbnail" alt="Foto del prodotto" style="width: 150px;"> -->
+        <div class="card-body">
+          <h5 class="card-title">{{ cartItems?.title }}</h5>
+          <p class="card-text">{{ cartItems?.description }}</p>
+          <p class="card-text">Price: {{ cartItems?.price }}</p>
+          <p class="card-text">Rating: {{ cartItems?.rating }}</p>
+          <!-- Add more product parameters as needed -->
+        </div>
+      </div>
+</div>
