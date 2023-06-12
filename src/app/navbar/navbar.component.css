@@ -6,6 +6,21 @@ a {
     width: 65px;
     height: 65px;
 }
+.icon:hover{
+    transition: 0.1s;
+    transform: rotate(3deg);
+    width: 75px;
+    height: 75px;
+}
+.nav-links {
+    text-decoration: none;
+}
+.nav-links:hover{
+    text-shadow: 1px 1px 35px#FFA400;
+    transition: 0.1s;
+    font-size: 24px;
+    color: #FFA400;
+}
 .navbg {
     background-color: darkblue;
 }
