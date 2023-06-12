@@ -20,24 +20,15 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
-<<<<<<< HEAD
-
-
-=======
     "@coreui/angular": "^4.5.0",
     "@coreui/coreui": "^4.2.6",
     "@coreui/icons-angular": "^4.5.0",
->>>>>>> a9b4a623c57b215ca003892b071acfde47be77fc
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.4",
-<<<<<<< HEAD
-
-=======
     "@ng-bootstrap/ng-bootstrap": "^15.0.1",
     "@types/bcrypt": "^5.0.0",
->>>>>>> a9b4a623c57b215ca003892b071acfde47be77fc
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
