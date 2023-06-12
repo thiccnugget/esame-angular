@@ -19,6 +19,7 @@ h2 {
 
 .container-fluid {
   max-width: 1200px;
+  background-color: #17255A;
 }
 
 .card {
@@ -91,9 +92,9 @@ h2 {
   box-shadow: -1px 6px 13px rgba(255, 150, 43, 0.35);
 }
 
-
-
-
+.price-hp{
+  color: #ebedee;
+}
 
 
 

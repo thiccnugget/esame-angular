@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ProductResponse } from '../utils/types';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
   standalone: true,
-  imports:[CommonModule]
+  imports:[CommonModule, RouterModule]
 })
 
 
