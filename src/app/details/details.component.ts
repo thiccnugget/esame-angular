@@ -21,10 +21,9 @@ export class DetailsComponent {
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.fetchProductDetails();
-      
     });
   }
-  
+
   fetchProductDetails(): void {
     const url = `https://dummyjson.com/products/${this.id}`;
 
@@ -32,7 +31,7 @@ export class DetailsComponent {
 
     axios.get(url)
       .then(response => {
-        this.products = response.data; // Assign the fetched product details to 'products'  
+        this.products = response.data; // Assign the fetched product details to 'products'
       })
       .catch(error => {
         console.error(error);

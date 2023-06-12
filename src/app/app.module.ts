@@ -18,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CarouselModule } from '@coreui/angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartService } from './cart/cart.service';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         HomeComponent,
         SignUpComponent,
     ],
-    providers: [],
+    providers: [
+        CartService
+    ],
     bootstrap: [AppComponent],
     imports: [
         NgbModule,
