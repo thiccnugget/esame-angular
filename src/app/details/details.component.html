@@ -6,10 +6,10 @@
 <body>
     <div class="details mt-5">
         <div class="row w-100 img-desc-wrapper j-center">
-            <div class="col-xs-12 col-sm-6 col-md-3 position-relative phone-carousel">
+            <div class="col-12 col-md-6 col-lg-8 phone-carousel">
                 <c-carousel [dark]="true" [interval]="2500" >
                     <c-carousel-inner>
-                    <c-carousel-item *ngFor="let image of products.images">
+                    <c-carousel-item *ngFor="let image of products.images" class="text-center">
                         <img [src]="image" alt="Slide Image" class="carousel-image" loading="lazy">
                     </c-carousel-item>
                     </c-carousel-inner>
@@ -17,7 +17,7 @@
                     <c-carousel-control caption="Next" direction="next"></c-carousel-control>
                 </c-carousel>
             </div>
-            <div class="col-xs-3 col-sm-6 col-md-3 description position-relative">
+            <div class="col-12 col-md-6 col-lg-4 description position-relative">
                 <p>
                     {{ products?.description }}
                 </p>
