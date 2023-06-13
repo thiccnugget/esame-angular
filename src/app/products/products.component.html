@@ -1,18 +1,17 @@
-<div class="bg">
-  <h1 class="title-products text-center pt-5 pb-3">Catalogo Prodotti</h1>
-  <div class="container-fluid  pb-5" style="position: relative;">
-    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-      <div class="col" *ngFor="let product of products?.products">
-        <div class="card h-100 shadow-sm">
-          <img class="card-img-top" [src]="product.images[0]" alt="Foto del prodotto">
-          <div class="card-body">
-            <div class="clearfix mb-3">
-              <span class="float-start badge rounded-pill bg-primary text-white">{{ product.title }}</span>
-              <span class="float-end price-hp text-white">${{ product.price }}</span>
-            </div>
-            <div class="text-center my-4">
-              <a routerLink="/details/{{product.id}}" routerLinkActive="active" class="btn btn-warning">Vai all'offerta</a>
-            </div>
+
+<h1 class="text-center pt-5 pb-3">Elenco Prodotti</h1>
+<div class="container-fluid  pb-5" style="position: relative;">
+  <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+    <div class="col" *ngFor="let product of products?.products">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" [src]="product.images[0]" alt="Foto del prodotto">
+        <div class="card-body">
+          <div class="clearfix mb-3">
+            <span class="float-start badge rounded-pill bg-primary text-white">{{ product.title }}</span>
+            <span class="float-end price-hp text-white">${{ product.price }}</span>
+          </div>
+          <div class="text-center my-4">
+            <a routerLink="/details/{{product.id}}" routerLinkActive="active" class="btn btn-warning">Vai all'offerta</a>
           </div>
         </div>
       </div>

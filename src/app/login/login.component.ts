@@ -89,5 +89,6 @@ export class LoginComponent implements OnInit {
   public logout(): void {
     console.log('logout');
     this.isLoggedIn = false;
+    this.router.navigate(['/login']);
   }
 }
